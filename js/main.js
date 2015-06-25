@@ -456,9 +456,10 @@ $(function() {
 				var itemName = collection[i].name;
 				var itemNiceName = collection[i].friendly_name;
 				var itemURL = collection[i].url;
+				var itemPicture = collection[i].picture;
 			}
 		}
-		$('.pic-holder').css('background-image','url(img/icons/'+itemName+'.png)');
+		$('.pic-holder').attr('src',itemPicture);
 		$('input[name=name]').val(itemNiceName);
 		$('input[name=url]').val(itemURL);
 		$('input[name=update]').val(itemId);
@@ -483,6 +484,11 @@ $(function() {
 		var slideId = $(this).attr('data-slideId');
 		changeSlide(slideId);
 		return false;
+	});
+
+	// BROKEN IMAGE FALLBACK
+	$('.sites-list li a img').on('error',function(){
+		$(this).attr('src','img/default.png');
 	});
 
 });

@@ -229,6 +229,8 @@ body {
     body .toolset .del:hover img, body .toolset .edit:hover img {
       transform: scale(1.1);
       opacity: 1; }
+    body .toolset .placeholder {
+      background: #ccc !important; }
   body .sites-list {
     margin-top: 10px;
     list-style-type: none;
