@@ -1,0 +1,534 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+	 Base styles: opinionated defaults
+	 ========================================================================== */
+html,
+button,
+input,
+select,
+textarea {
+  color: #222; }
+
+body {
+  font-size: 1em;
+  line-height: 1.4; }
+
+a {
+  color: #00e; }
+
+a:visited {
+  color: #551a8b; }
+
+a:hover {
+  color: #06e; }
+
+/*
+ * Remove the gap between images and the bottom of their containers
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+img {
+  vertical-align: middle; }
+
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical; }
+
+/* ==========================================================================
+	 Author's custom styles
+	 ========================================================================== */
+a {
+  text-decoration: none; }
+
+.typed-cursor {
+  display: none; }
+
+.btn {
+  background: #FFC700;
+  border-radius: 8px;
+  line-height: 57px;
+  font-size: 19px;
+  font-weight: bold;
+  color: #fff !important;
+  padding: 0 5%;
+  display: block;
+  width: 50%;
+  margin-left: 20%;
+  transition: all 0.1s ease-in-out; }
+  .btn:hover {
+    transform: scale(0.95);
+    background: #e6b300; }
+
+.btn-sm {
+  width: calc(50% - 60px);
+  font-size: 1.1em;
+  padding: 10px;
+  display: inline-block;
+  position: static; }
+
+@font-face {
+  font-family: 'avenir';
+  src: url("../fonts/avenirnext-regular.eot");
+  src: url("../fonts/avenirnext-regular.otf") format("truetype"), url("../fonts/avenirnext-regular.woff") format("woff"), url("../fonts/avenirnext-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/avenirnext-regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'avenir';
+  src: url("../fonts/avenirnext-ultralight.eot");
+  src: url("../fonts/avenirnext-ultralight.otf") format("truetype"), url("../fonts/avenirnext-ultralight.woff") format("woff"), url("../fonts/avenirnext-ultralight.eot?#iefix") format("embedded-opentype"), url("../fonts/avenirnext-ultralight.svg") format("svg");
+  font-weight: 100;
+  font-style: normal; }
+/* anims */
+.animated {
+  animation-duration: 0.7s; }
+
+@keyframes levitate {
+  0% {
+    transform: translate(0, 0); }
+  100% {
+    transform: translate(0, 10px); } }
+@keyframes shadow {
+  0% {
+    opacity: 0.3; }
+  100% {
+    opacity: 0.7; } }
+body {
+  font-family: 'avenir';
+  font-weight: 100;
+  background: #888; }
+  body .content-wrap {
+    background: #ccc; }
+  body .content {
+    background: #eee;
+    overflow: hidden;
+    height: 100%; }
+  body aside {
+    /*float:left;
+    width:130px;
+    transform:translateX(-100px);
+    height:600px;
+    background:yellow;
+    transition:all 0.2s ease-in-out;*/ }
+  body .menu-wrap {
+    background: #fff; }
+    body .menu-wrap h1 {
+      font-weight: 100;
+      margin: 0;
+      padding: 10px 20px; }
+    body .menu-wrap form {
+      background: #ddd;
+      padding-top: 20px; }
+      body .menu-wrap form .pic-holder {
+        padding: 0;
+        display: block;
+        width: 100px;
+        height: 100px;
+        border-radius: 7px;
+        background: #bbb;
+        position: relative;
+        left: 100px;
+        margin: 10px 0 20px;
+        box-shadow: 0 5px 0 0 #666;
+        background-size: cover;
+        background-position: center; }
+      body .menu-wrap form input {
+        display: inline-block;
+        margin: 10px 20px;
+        width: 250px;
+        font-size: 15px;
+        line-height: 30px;
+        padding: 0 10px;
+        transition: all 0.1s ease-in-out;
+        border-radius: 4px;
+        border: none;
+        letter-spacing: -1px; }
+        body .menu-wrap form input:hover, body .menu-wrap form input:active, body .menu-wrap form input:focus {
+          outline: none !important;
+          box-shadow: 0 0 0 2px #fff; }
+        body .menu-wrap form input[name=name] {
+          font-size: 20px;
+          line-height: 35px; }
+        body .menu-wrap form input[type=submit] {
+          width: 160px !important;
+          margin-left: 70px;
+          text-align: center;
+          font-weight: bold;
+          text-transform: uppercase;
+          font-size: 12px;
+          background: #bbb;
+          line-height: 40px;
+          margin-bottom: 20px;
+          box-shadow: 0 3px 0 0 #666; }
+          body .menu-wrap form input[type=submit]:hover, body .menu-wrap form input[type=submit]:focus {
+            background: #aaa; }
+          body .menu-wrap form input[type=submit]:active {
+            box-shadow: 0 0 0 2px #aaa;
+            background: #aaa; }
+  body h2 {
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
+    margin-left: 50px;
+    line-height: 17px;
+    font-weight: 100;
+    font-size: 17px; }
+    body h2:hover a {
+      display: inline; }
+    body h2 img {
+      width: 15px;
+      height: 15px;
+      margin-left: 5px;
+      opacity: 0.5;
+      transition: all 0.1s ease-in-out; }
+    body h2 a {
+      display: none; }
+    body h2 a:hover img {
+      transform: scale(1.1);
+      opacity: 1; }
+  body hr {
+    margin: auto 50px;
+    border: 1px solid #ddd; }
+  body .toolset {
+    background: #dadada;
+    margin-top: 100px;
+    padding: 10px 0;
+    height: 144px; }
+    body .toolset:hover .del, body .toolset:hover .edit {
+      display: inline; }
+    body .toolset .del img, body .toolset .edit img {
+      width: 15px;
+      height: 15px;
+      margin-left: 5px;
+      opacity: 0.5;
+      transition: all 0.1s ease-in-out; }
+    body .toolset .del, body .toolset .edit {
+      display: none;
+      float: left;
+      position: relative; }
+    body .toolset .del {
+      top: 45px;
+      left: -10px; }
+    body .toolset .edit {
+      top: 22px;
+      left: 10px; }
+    body .toolset .del:hover img, body .toolset .edit:hover img {
+      transform: scale(1.1);
+      opacity: 1; }
+  body .sites-list {
+    margin-top: 10px;
+    list-style-type: none;
+    height: 92px; }
+    body .sites-list:hover a.placeholder {
+      transform: scale(0.9) !important; }
+    body .sites-list li {
+      display: inline-block;
+      width: 75px;
+      height: 75px;
+      margin-right: 10px;
+      font-size: 11px;
+      text-align: center; }
+      body .sites-list li.visited img, body .sites-list li.blur img {
+        -webkit-filter: grayscale(60%) !important;
+        opacity: 0.6; }
+      body .sites-list li.blur a {
+        /*background-color:#ff4958;*/ }
+      body .sites-list li a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+        transition: all 0.1s ease-in-out;
+        transform: scale(0.9);
+        /*box-shadow:0 5px 0 0 #ccc;*/ }
+        body .sites-list li a:hover {
+          transform: scale(1);
+          /*box-shadow:0 0 10px 0 #333;*/ }
+          body .sites-list li a:hover .del-item.active, body .sites-list li a:hover .edit-item.active {
+            transform: scale(1.5); }
+          body .sites-list li a:hover .visited {
+            transform: scale(0); }
+        body .sites-list li a:active {
+          cursor: move; }
+        body .sites-list li a.placeholder {
+          font-size: 50px;
+          color: #333;
+          transform: scale(0);
+          position: relative;
+          top: -12px; }
+          body .sites-list li a.placeholder:hover {
+            transform: scale(1); }
+        body .sites-list li a img {
+          width: 75px;
+          height: 75px;
+          transition: all 0.5s ease-in-out; }
+        body .sites-list li a .visited, body .sites-list li a .del-item, body .sites-list li a .edit-item {
+          width: 25px;
+          height: 25px;
+          background-size: cover;
+          background-position: center;
+          background-image: url("../img/visited.png");
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          margin-left: -12px;
+          margin-top: -12px;
+          z-index: 100;
+          transition: all 0.1s ease-in-out; }
+        body .sites-list li a .visited.inactive {
+          transform: scale(0); }
+        body .sites-list li a .del-item {
+          background-image: url("../img/delitem.png");
+          transform: scale(0); }
+          body .sites-list li a .del-item.active {
+            transform: scale(1); }
+        body .sites-list li a .edit-item {
+          background-image: url("../img/edititem.png");
+          transform: scale(0); }
+          body .sites-list li a .edit-item.active {
+            transform: scale(1); }
+    body .sites-list .sortable-placeholder {
+      width: 75px;
+      height: 75px;
+      border-radius: 5px;
+      border: 1px dashed #aaa; }
+  body .container {
+    transition: all 0.3s ease-in-out; }
+    body .container.blur {
+      -webkit-filter: blur(10px) !important; }
+  body #welcome-container {
+    width: 420px;
+    height: 520px;
+    position: absolute;
+    overflow: hidden;
+    left: 50%;
+    margin-left: -210px;
+    margin-top: 75px;
+    background: #103d52;
+    border-radius: 8px;
+    z-index: 9999;
+    text-align: center;
+    font-size: 21px;
+    color: #fff;
+    line-height: 29px; }
+    body #welcome-container .close-button {
+      opacity: 0.5;
+      transition: all 0.1s ease-in-out; }
+      body #welcome-container .close-button:hover {
+        opacity: 1; }
+    body #welcome-container .buddash-logo {
+      width: 180px;
+      margin-top: 60px; }
+      body #welcome-container .buddash-logo.levitate {
+        animation: levitate 2s alternate ease-in-out infinite; }
+      body #welcome-container .buddash-logo.animated {
+        -webkit-animation-delay: 1s !important; }
+    body #welcome-container .shadow {
+      width: 180px;
+      height: 180px;
+      border-radius: 90px;
+      margin-left: 120px;
+      background: #000;
+      transform: scaleY(0.1);
+      position: absolute;
+      top: 170px;
+      -webkit-filter: blur(20px) !important;
+      opacity: 0.3; }
+      body #welcome-container .shadow.active {
+        animation: shadow 2s alternate ease-in-out infinite; }
+    body #welcome-container p {
+      margin: 35px 40px 0; }
+      body #welcome-container p span {
+        color: #ffc700;
+        font-weight: bold; }
+    body #welcome-container a {
+      color: #FFC700; }
+      body #welcome-container a:hover {
+        color: #cc9f00; }
+      body #welcome-container a.troll {
+        font-weight: bold;
+        margin-top: 20px;
+        display: inline-block;
+        font-size: 16px; }
+    body #welcome-container small {
+      font-size: 12px; }
+    body #welcome-container #slides-container {
+      width: 9999px;
+      text-align: left;
+      font-size: 0;
+      transition: all 0.2s ease-in-out; }
+    body #welcome-container section {
+      font-size: 21px;
+      width: 420px;
+      height: 520px;
+      display: inline-block;
+      text-align: center;
+      float: left; }
+    body #welcome-container .buddash-logo-small {
+      width: 40px;
+      margin-top: 40px; }
+    body #welcome-container section[data-id='0'] p {
+      margin: 70px 60px 40px; }
+    body #welcome-container section[data-id='1'] small {
+      display: block;
+      margin-top: 30px; }
+    body #welcome-container nav {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      margin-left: -50px;
+      display: none; }
+      body #welcome-container nav.active {
+        display: block; }
+      body #welcome-container nav a {
+        display: block;
+        float: left;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background: #3A7794;
+        margin: 0 5px;
+        transition: all 0.1s ease-in-out; }
+        body #welcome-container nav a:hover {
+          transform: scale(1.3);
+          background: #6eaac6; }
+        body #welcome-container nav a.active {
+          background: #ffc700; }
+          body #welcome-container nav a.active:hover {
+            transform: scale(1); }
+
+/* placeholders */
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #bbb; }
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #bbb;
+  opacity: 1; }
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #bbb;
+  opacity: 1; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #bbb; }
+
+/* ==========================================================================
+	 Helper classes
+	 ========================================================================== */
+/* Prevent callout */
+.nocallout {
+  -webkit-touch-callout: none; }
+
+.pressed {
+  background-color: rgba(0, 0, 0, 0.7); }
+
+/* A hack for HTML5 contenteditable attribute on mobile */
+textarea[contenteditable] {
+  -webkit-appearance: none; }
+
+/* A workaround for S60 3.x and 5.0 devices which do not animated gif images if
+	 they have been set as display: none */
+.gifhidden {
+  position: absolute;
+  left: -100%; }
+
+/*
+ * Image replacement
+ */
+.ir {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 0;
+  direction: ltr;
+  display: block;
+  overflow: hidden;
+  text-align: left;
+  text-indent: -999em; }
+
+.ir br {
+  display: none; }
+
+/*
+ * Hide from both screenreaders and browsers
+ * http://juicystudio.com/article/screen-readers-display-none.php
+ */
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
+/*
+ * Hide only visually, but have it available for screenreaders
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: https://www.drupal.org/node/897638
+ */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+.invisible {
+  visibility: hidden; }
+
+/**
+ * Clearfix helper
+ * Used to contain floats: http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+/* ==========================================================================
+	 EXAMPLE Media Queries for Responsive Design.
+	 Theses examples override the primary ('mobile first') styles.
+	 Modify as content requires.
+	 ========================================================================== */
+@media only screen and (min-width: 800px) {
+  /* Style adjustments for viewports that meet the condition */ }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
+  /* Style adjustments for viewports that meet the condition */ }
+
+/*# sourceMappingURL=main.css.map */

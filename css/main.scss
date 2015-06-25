@@ -1,0 +1,708 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+	 Base styles: opinionated defaults
+	 ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+		color: #222;
+}
+
+body {
+		font-size: 1em;
+		line-height: 1.4;
+}
+
+a {
+		color: #00e;
+}
+
+a:visited {
+		color: #551a8b;
+}
+
+a:hover {
+		color: #06e;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+img {
+		vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+		border: 0;
+		margin: 0;
+		padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+		resize: vertical;
+}
+
+/* ==========================================================================
+	 Author's custom styles
+	 ========================================================================== */
+a{
+	text-decoration: none;
+}
+.typed-cursor{
+	display:none;
+}
+.btn{
+	background: #FFC700;
+	border-radius: 8px;
+	line-height:57px;
+	font-size:19px;
+	font-weight:bold;
+	color:#fff !important;
+	padding:0 5%;
+	display:block;
+	width:50%;
+	margin-left:20%;
+	transition:all 0.1s ease-in-out;
+
+	&:hover{
+		transform:scale(0.95);
+		background:darken(#ffc700,5%);
+	}
+}
+.btn-sm{
+	width:calc(50% - 60px);
+	font-size:1.1em;
+	padding:10px;
+	display:inline-block;
+	position:static;
+}
+
+@font-face {
+	font-family: 'avenir';
+	src: url('../fonts/avenirnext-regular.eot');
+	src: url('../fonts/avenirnext-regular.otf') format('truetype'),
+	     url('../fonts/avenirnext-regular.woff') format('woff'),
+	     url('../fonts/avenirnext-regular.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/avenirnext-regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'avenir';
+	src: url('../fonts/avenirnext-ultralight.eot');
+	src: url('../fonts/avenirnext-ultralight.otf') format('truetype'),
+	     url('../fonts/avenirnext-ultralight.woff') format('woff'),
+	     url('../fonts/avenirnext-ultralight.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/avenirnext-ultralight.svg') format('svg');
+	font-weight: 100;
+	font-style: normal;
+}
+/* anims */
+.animated{
+	animation-duration:0.7s;
+}
+
+$levitate-speed: 2s;
+$levitate-offset: 10px;
+    
+@keyframes levitate{
+  0%{
+    transform: translate(0, 0);
+  }
+  100%{
+    transform: translate(0, $levitate-offset);
+  }
+}
+
+@keyframes shadow{
+  0%{
+    opacity:0.3;
+  }
+  100%{
+    opacity:0.7;
+  }
+}
+
+body{
+	font-family:'avenir';
+	font-weight:100;
+	background:#888;
+	
+	.content-wrap{background:#ccc;}
+	.content{background:#eee;overflow:hidden;height:100%;}
+	aside{
+		/*float:left;
+		width:130px;
+		transform:translateX(-100px);
+		height:600px;
+		background:yellow;
+		transition:all 0.2s ease-in-out;*/
+
+	}
+	#list-wrap{
+		
+	}
+	.menu-wrap{
+		background:#fff;
+
+		h1{
+			font-weight:100;
+			margin:0;
+			padding:10px 20px;
+		}
+		form{
+			background:#ddd;
+			padding-top:20px;
+
+			.pic-holder{
+				padding:0;
+				display:block;
+				width:100px;
+				height:100px;
+				border-radius:7px;
+				background:#bbb;
+				position:relative;
+				left:100px;
+				margin:10px 0 20px;
+				box-shadow:0 5px 0 0 #666;
+				background-size: cover;
+				background-position: center;
+			}
+			input{
+				display:inline-block;
+				margin:10px 20px;
+				width:250px;
+				font-size:15px;
+				line-height:30px;
+				padding:0 10px;
+				transition:all 0.1s ease-in-out;
+				border-radius:4px;
+				border:none;
+				letter-spacing: -1px;
+
+				&:hover,&:active,&:focus{
+					outline:none !important;
+					box-shadow:0 0 0 2px #fff;
+				}
+				&[name=name]{
+					font-size:20px;
+					line-height:35px;
+				}
+				&[type=submit]{
+					width:160px !important;
+					margin-left:70px;
+					text-align:center;
+					font-weight:bold;
+					text-transform: uppercase;
+					font-size:12px;
+					background:#bbb;
+					line-height:40px;
+					margin-bottom:20px;
+					box-shadow:0 3px 0 0 #666;
+
+					&:hover,&:focus{
+						background:#aaa;
+					}
+					&:active{
+						box-shadow:0 0 0 2px #aaa;
+						background:#aaa;
+
+					}
+				}
+			}
+		}
+	}
+
+	h2{
+		margin:0;
+		padding:0;
+		padding-top:20px;
+		margin-left:50px;
+		line-height:17px;
+		font-weight:100;
+		font-size:17px;
+		&:hover a{
+			display:inline;
+		}
+		img{
+			width:15px;
+			height:15px;
+			margin-left:5px;
+			opacity:0.5;
+			transition:all 0.1s ease-in-out;
+		}
+		a{
+			display:none;
+		}
+		a:hover img{
+			transform:scale(1.1);
+			opacity:1;
+		}
+	}
+
+	hr{
+		margin:auto 50px;
+		border:1px solid #ddd;
+	}
+	.toolset{
+		background:#dadada;
+		margin-top:100px;
+		padding:10px 0;
+		height:144px;
+
+		&:hover .del,&:hover .edit{
+			display:inline;
+		}
+		.del img,.edit img{
+			width:15px;
+			height:15px;
+			margin-left:5px;
+			opacity:0.5;
+			transition:all 0.1s ease-in-out;
+		}
+		.del,.edit{
+			display:none;
+			float:left;
+			position:relative;
+		}
+		.del{
+			top:45px;
+			left:-10px;
+		}
+		.edit{
+			top:22px;
+			left:10px;
+		}
+		.del:hover img,.edit:hover img{
+			transform:scale(1.1);
+			opacity:1;
+		}
+	}
+	.sites-list{
+		margin-top:10px;
+		list-style-type: none;
+		height:92px;
+
+		&:hover{
+			a.placeholder{
+				transform:scale(0.9) !important;
+			}
+		}
+
+		li{
+			display:inline-block;
+			width:75px;
+			height:75px;
+			margin-right:10px;
+			font-size:11px;
+			text-align:center;
+			
+			&.visited,&.blur{
+				img{
+					-webkit-filter: grayscale(60%) !important;
+					opacity:0.6;
+				}
+			}
+			&.blur{
+				a{
+					/*background-color:#ff4958;*/
+				}
+			}
+
+			a{
+				display:block;
+				width:100%;
+				height:100%;
+				background-color: #ddd;
+				border-radius:5px;
+				overflow:hidden;
+				transition:all 0.1s ease-in-out;
+				transform:scale(0.9);
+				/*box-shadow:0 5px 0 0 #ccc;*/
+
+				&:hover{
+					transform:scale(1);
+					/*box-shadow:0 0 10px 0 #333;*/
+
+					.del-item.active,.edit-item.active{
+						transform:scale(1.5);
+					}
+					.visited{
+						transform:scale(0);
+					}
+				}
+				&:active{
+					cursor:move;
+				}
+
+				&.placeholder{
+					font-size:50px;
+					color:#333;
+					transform:scale(0);
+					position:relative;
+					top:-12px;
+
+					&:hover{
+						transform:scale(1);
+					}
+				}
+				img{
+					width:75px;
+					height:75px;
+					transition:all 0.5s ease-in-out;
+				}
+				.visited,.del-item,.edit-item{
+					width:25px;
+					height:25px;
+					background-size:cover;
+					background-position: center;
+					background-image:url('../img/visited.png');
+					position:absolute;
+					left:50%;
+					top:50%;
+					margin-left:-12px;
+					margin-top:-12px;
+					z-index:100;
+					transition:all 0.1s ease-in-out;
+				}
+				.visited{
+					&.inactive{
+						transform:scale(0);
+					}
+				}
+				.del-item{
+					background-image:url('../img/delitem.png');
+					transform:scale(0);
+					&.active{
+						transform:scale(1);
+					}
+				}
+				.edit-item{
+					background-image:url('../img/edititem.png');
+					transform:scale(0);
+					&.active{
+						transform:scale(1);
+					}
+				}
+			}
+		}
+		.sortable-placeholder{
+			width:75px;
+			height:75px;
+			border-radius:5px;
+			border:1px dashed #aaa;
+		}
+	}
+	.container{
+		transition:all 0.3s ease-in-out;
+		&.blur{
+			-webkit-filter: blur(10px) !important;
+		}
+	}
+	#welcome-container{
+		width:420px;
+		height:520px;
+		position:absolute;
+		overflow:hidden;
+		left:50%;
+		margin-left:-210px;
+		margin-top:75px;
+		background:#103d52;
+		border-radius:8px;
+		z-index:9999;
+		text-align:center;
+		font-size:21px;
+		color: #fff;
+		line-height: 29px;
+
+		.close-button{
+			opacity:0.5;
+			transition:all 0.1s ease-in-out;
+			&:hover{
+				opacity:1;
+			}
+		}
+
+		.buddash-logo{
+			width:180px;
+			margin-top:60px;
+			&.levitate{
+				animation: levitate $levitate-speed alternate ease-in-out infinite;
+			}
+			&.animated{
+				-webkit-animation-delay:1s !important;
+			}
+		}
+		.shadow{
+			width:180px;
+			height:180px;
+			border-radius:90px;
+			margin-left:120px;
+			background:#000;
+			transform:scaleY(0.1);
+			position:absolute;
+			top:170px;
+			-webkit-filter: blur(20px) !important;
+			opacity:0.3;
+			&.active{
+				animation: shadow $levitate-speed alternate ease-in-out infinite;
+			}
+		}
+		p{
+			margin:35px 40px 0;
+			span{
+				color:#ffc700;
+				font-weight:bold;
+			}
+		}
+		a{
+			color:#FFC700;
+			&:hover{
+				color:darken(#ffc700,10%);
+			}
+			&.troll{
+				font-weight:bold;
+				margin-top:20px;
+				display:inline-block;
+				font-size:16px;
+			}
+		}
+		small{
+			font-size:12px;
+		}
+		#slides-container{
+			width:9999px;
+			text-align:left;
+			font-size:0;
+			transition:all 0.2s ease-in-out;
+		}
+		section{
+			font-size:21px;
+			width:420px;
+			height:520px;
+			display:inline-block;
+			text-align:center;
+			float:left;
+		}
+		.buddash-logo-small{
+			width:40px;
+			margin-top:40px;
+		}
+		section[data-id='0']{
+			p{
+				margin:70px 60px 40px;
+			}
+		}
+		section[data-id='1']{
+			small{
+				display:block;
+				margin-top:30px;
+			}
+		}
+		nav{
+			position:absolute;
+			bottom:50px;
+			left:50%;
+			margin-left:-50px;
+			display:none;
+			&.active{
+				display:block;
+			}
+			a{
+				display:block;
+				float:left;
+				width:10px;
+				height:10px;
+				border-radius:5px;
+				background:#3A7794;
+				margin:0 5px;
+				transition:all 0.1s ease-in-out;
+
+				&:hover{
+					transform:scale(1.3);
+					background:lighten(#3a7794,20%);
+				}
+
+				&.active{
+					background:#ffc700;
+					&:hover{
+						transform:scale(1);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+/* placeholders */
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #bbb;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #bbb;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #bbb;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #bbb;
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+	 Helper classes
+	 ========================================================================== */
+
+/* Prevent callout */
+
+.nocallout {
+		-webkit-touch-callout: none;
+}
+
+.pressed {
+		background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* A hack for HTML5 contenteditable attribute on mobile */
+
+textarea[contenteditable] {
+		-webkit-appearance: none;
+}
+
+/* A workaround for S60 3.x and 5.0 devices which do not animated gif images if
+	 they have been set as display: none */
+
+.gifhidden {
+		position: absolute;
+		left: -100%;
+}
+
+/*
+ * Image replacement
+ */
+
+.ir {
+		background-color: transparent;
+		background-repeat: no-repeat;
+		border: 0;
+		direction: ltr;
+		display: block;
+		overflow: hidden;
+		text-align: left;
+		text-indent: -999em;
+}
+
+.ir br {
+		display: none;
+}
+
+/*
+ * Hide from both screenreaders and browsers
+ * http://juicystudio.com/article/screen-readers-display-none.php
+ */
+
+.hidden {
+		display: none !important;
+		visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+		clip: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		position: static;
+		width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+		visibility: hidden;
+}
+
+/**
+ * Clearfix helper
+ * Used to contain floats: http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+
+.clearfix:before,
+.clearfix:after {
+		content: "";
+		display: table;
+}
+
+.clearfix:after {
+		clear: both;
+}
+
+/* ==========================================================================
+	 EXAMPLE Media Queries for Responsive Design.
+	 Theses examples override the primary ('mobile first') styles.
+	 Modify as content requires.
+	 ========================================================================== */
+
+@media only screen and (min-width: 800px) {
+		/* Style adjustments for viewports that meet the condition */
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+			 only screen and (min-resolution: 144dpi) {
+		/* Style adjustments for viewports that meet the condition */
+}

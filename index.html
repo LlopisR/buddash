@@ -1,0 +1,171 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Buddash</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="icon" href="favicon.ico">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" type="text/css" href="css/menu_cornerbox.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+		<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '389462007849578',
+				xfbml      : true,
+				version    : 'v2.3'
+			});
+		};
+
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		</script>
+    	<!-- welcome modal -->
+        <div id="welcome-container" class="animated fadeInDownBig">
+        	<div id="slides-container">
+	        	
+	        	<section data-id="0">
+		        	<img src="img/buddash.png" alt="Buddash" class="buddash-logo animated rubberBand">
+		        	<div class="shadow"></div>
+		        	<p>
+		        		Namaste stranger, would you like to <strong>take a tour</strong> ?
+		        	</p>
+		        	<a href="" class="btn change-slide" data-slideId="1">
+		        		<!-- I was afraid to ask -->
+		        		How kind, thank you!
+		        	</a>
+		        	<a href="" target="_blank" class="troll">Yeah... no.</a>
+		        </section>
+
+		        <section data-id="1">
+		        	<img src="img/buddash_small.png" alt="Buddash" class="buddash-logo-small">
+		        	<p>
+		        		<span>buddash</span> is a perfect little way to <strong>organize</strong> and <strong>remember to check</strong> the <strong>sites</strong> you love.
+		        	</p>
+		        	<p>
+						Add a <strong>name</strong>, select a <strong>frequency</strong>, and you’re good to go.
+					</p>
+					<p>
+						It’s like an awesome visual <strong>todo list for websites</strong>!
+					</p>
+					<small>[Enter] &nbsp;&nbsp; [&larr;] [&rarr;]</small>
+		        </section>
+		    </div>
+		    <nav>
+	        	<a href="#" class="active change-slide" data-slideId="1"></a>
+	        	<a href="#" class="change-slide" data-slideId="2"></a>
+	        	<a href="#" class="change-slide" data-slideId="3"></a>
+	        	<a href="#" class="change-slide" data-slideId="4"></a>
+	        	<a href="#" class="change-slide" data-slideId="5"></a>
+	        </nav>
+        	<button class="close-button">Close Menu</button>
+        </div>
+    	<div class="container">
+    		<!-- add new -->
+    		<div class="menu-wrap">
+				
+					<h1>Add a Site</h1>
+					<form>
+						<img class="pic-holder">
+						<input name="name" type="text" placeholder="Website Name">
+						<input name="url" type="text" placeholder="URL">
+						<input name="list" type="hidden" value="">
+						<input name="update" type="hidden" value="">
+						<input type="submit" value="Add to Collection">
+					</form>
+				
+				<button class="close-button" id="close-button">Close Menu</button>
+			</div>
+
+			<!-- content -->
+	        <div class="content-wrap">
+	        	<div class="content">
+		        	<aside>
+		        		
+		        	</aside>
+	        		<div id="list-wrap">
+				        <h2>
+				        	Daily
+				        	<a href="#" class="edit" id="edit-daily"><img src="img/pen.png" alt="Edit items"></a>
+				        	<a href="#" class="del" id="del-daily"><img src="img/trash.png" alt="Delete items"></a>
+				        </h2>
+				        <ul class="sites-list" id="daily-list">
+				            <li class="animated zoomIn add-button" data-sort="1000">
+			                    <a href="#" class="placeholder open-button" data-list="daily">&plus;</a>		  
+			                </li>
+				        </ul>
+				        <hr>
+
+				        <h2>
+				        	Weekly
+				        	<a href="#" class="edit" id="edit-weekly"><img src="img/pen.png" alt="Edit items"></a>
+				        	<a href="#" class="del" id="del-weekly"><img src="img/trash.png" alt="Delete items"></a>
+				        </h2>
+				        <ul class="sites-list" id="weekly-list">
+				            <li class="animated zoomIn add-button" data-sort="1000">
+			                    <a href="#" class="placeholder open-button" data-list="weekly">&plus;</a>		  
+			                </li>
+				        </ul>
+				        <hr>
+
+				        <h2>
+				        	Monthly
+				        	<a href="#" class="edit" id="edit-monthly"><img src="img/pen.png" alt="Edit items"></a>
+				        	<a href="#" class="del" id="del-monthly"><img src="img/trash.png" alt="Delete items"></a>
+				        </h2>
+				        <ul class="sites-list" id="monthly-list">
+				            <li class="animated zoomIn add-button" data-sort="1000">
+			                    <a href="#" class="placeholder open-button" data-list="monthly">&plus;</a>		  
+			                </li>
+				        </ul>
+				    </div>
+
+			        <section class="toolset animated slideInUp">
+			        	<a href="#" class="edit" id="edit-tools"><img src="img/pen.png" alt="Edit items"></a>
+			        	<a href="#" class="del" id="del-tools"><img src="img/trash.png" alt="Delete items"></a>
+			            <ul class="sites-list" id="tools-list">
+			                <li class="animated zoomIn add-button" data-sort="1000">
+			                    <a href="#" class="placeholder open-button" data-list="tools">&plus;</a>			  
+			                </li>
+			            </ul>
+		        	</section>
+		        </div> <!-- .content -->
+	        </div> <!-- .content-wrap -->
+        </div> <!-- .container -->
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/vendor/prefixfree.min.js"></script>
+        <script src="js/vendor/html.sortable.min.js"></script>
+        <script src="js/vendor/classie.js"></script>
+        <script src="js/vendor/colorthief.min.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>
