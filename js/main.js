@@ -160,12 +160,14 @@ function displayCollection(){
 function toggleMenu(bodyEl,isOpen) {
 
 		if( isOpen ) {
+			$('.menu-img').removeClass('active');
 			classie.remove( bodyEl, 'show-menu' );
 			// clear fields
 			$('input[type=text],input[type=hidden]').val('');
-			$('.pic-holder').css('background-image','');
+			$('.pic-holder').attr('src','');
 			$('input[type=submit]').val('Add to Collection');
 			$('h1').html('Add a Site');
+			$('.img-options').removeClass('active');
 		}
 		else {
 			classie.add( bodyEl, 'show-menu' );
@@ -234,10 +236,26 @@ function changeSlide(param){
 
 /* GET PICTURE FROM FACEBOOK SEARCH API */
 function getPicture(search){
+	var isAuto = $('.pic-holder').attr('data-auto');
+	if(isAuto != 'false'){
+		if(search){
+			$.getJSON( "https://graph.facebook.com/search?q="+search+"&type=page&access_token=389462007849578|9817455b1f4793db6d1c889145bbeb7f&limit=1", function( data ) {
+				pageid = data.data[0].id;
+				$('.pic-holder').attr('src','http://graph.facebook.com/'+pageid+'/picture/?width=100&height=100');
+			});
+		}
+	}
+}
+
+/* GET MORE PICS FROM FACEBOOK */
+function displayMoreImg(search){
 	if(search){
-		$.getJSON( "https://graph.facebook.com/search?q="+search+"&type=page&access_token=389462007849578|9817455b1f4793db6d1c889145bbeb7f&limit=10", function( data ) {
-			pageid = data.data[0].id;
-			$('.pic-holder').attr('src','http://graph.facebook.com/'+pageid+'/picture/?width=100&height=100');
+		$('.menu-img div').html('');
+		$.getJSON( "https://graph.facebook.com/search?q="+search+"&type=page&access_token=389462007849578|9817455b1f4793db6d1c889145bbeb7f&limit=20", function( data ) {
+			length = data.data.length;
+			for(i=0;i<length;i++){
+				$('.menu-img div').append('<img src="http://graph.facebook.com/'+data.data[i].id+'/picture/?width=100&height=100" class="animated zoomIn">');
+			}
 		});
 	}
 }
@@ -302,6 +320,7 @@ $(function() {
 		.on('blur',function(){
 			var currentNiceName = $('input[name=name]').val();
 			getPicture(currentNiceName);
+			$('.img-options').addClass('active');
 		});
 
 
@@ -459,7 +478,7 @@ $(function() {
 				var itemPicture = collection[i].picture;
 			}
 		}
-		$('.pic-holder').attr('src',itemPicture);
+		$('.pic-holder').attr('src',itemPicture).attr('data-auto','false');
 		$('input[name=name]').val(itemNiceName);
 		$('input[name=url]').val(itemURL);
 		$('input[name=update]').val(itemId);
@@ -489,6 +508,29 @@ $(function() {
 	// BROKEN IMAGE FALLBACK
 	$('.sites-list li a img').on('error',function(){
 		$(this).attr('src','img/default.png');
+	});
+
+	// OPEN/CLOSE IMG MENU
+	var flagImg = 0;
+	$('.img-options').on('click',function(){
+		if(flagImg%2==0){
+			var search = $('input[name=name]').val();
+			displayMoreImg(search);
+			$('.menu-img').addClass('active');
+		}
+		else{
+			$('.menu-img').removeClass('active');
+		}
+		flagImg++;
+		return false;
+	});
+
+	// PUT SELECTED IMG IN PLACEHOLDER
+	$('body').on('click','.menu-img img',function(){
+		var newImage = $(this).attr('src');
+		flagImg++;
+		$('.menu-img').removeClass('active');
+		$('.pic-holder').attr('src',newImage).attr('data-auto','false');
 	});
 
 });

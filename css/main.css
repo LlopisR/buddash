@@ -133,6 +133,23 @@ body {
     body .menu-wrap form {
       background: #ddd;
       padding-top: 20px; }
+      body .menu-wrap form .img-options {
+        position: absolute;
+        left: 120px;
+        display: block;
+        padding: 5px;
+        font-size: 12px;
+        background: #ccc;
+        color: #333;
+        border-radius: 4px;
+        box-shadow: 0 3px 0 0 #666;
+        transition: all 0.2s ease-in-out; }
+        body .menu-wrap form .img-options#more-img {
+          top: 110px; }
+        body .menu-wrap form .img-options#url-img {
+          top: 150px; }
+        body .menu-wrap form .img-options.active {
+          left: 210px; }
       body .menu-wrap form .pic-holder {
         padding: 0;
         display: block;
@@ -179,6 +196,28 @@ body {
           body .menu-wrap form input[type=submit]:active {
             box-shadow: 0 0 0 2px #aaa;
             background: #aaa; }
+  body .menu-img {
+    position: absolute;
+    left: -400px;
+    top: 0;
+    width: 280px;
+    height: 350px;
+    background: #ccc;
+    z-index: 1;
+    padding: 20px;
+    transition: all 0.3s ease-in-out; }
+    body .menu-img.active {
+      left: 320px; }
+    body .menu-img img {
+      margin: 5px;
+      border-radius: 4px;
+      width: 60px;
+      height: 60px;
+      transform: scale(1);
+      transition: all 0.2s ease-in-out; }
+      body .menu-img img:hover {
+        cursor: pointer;
+        transform: scale(1.1); }
   body h2 {
     margin: 0;
     padding: 0;
