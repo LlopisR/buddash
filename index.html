@@ -98,15 +98,52 @@
 				<button class="close-button" id="close-button">Close Menu</button>
 			</div>
 			<div class="menu-img">
-			
+
 				<div></div>
+			</div>
+			<div class="menu-url">
+				<input type="text" name="img-url" placeholder="http://">
+				<span>&#8629;</span>
 			</div>
 
 			<!-- content -->
 	        <div class="content-wrap">
 	        	<div class="content">
 		        	<aside>
-		        		
+		        		<img src="img/buddash_small_black.png" class="logo">
+		        		<ul class="menu">
+		        			<li>
+		        				<a href="#">Thèmes</a>
+		        				<div class="setting-detail">
+		        					<p>
+		        					Select a theme in the list below to change the color scheme.
+		        					</p>
+		        					<ul id="theme-picker">
+		        						<li class="active" id="theme-default"></li>
+		        						<li id="theme-zen"></li>
+		        						<li id="theme-fire"></li>
+		        					</ul>
+		        				</div>
+		        			</li>
+		        			<li>
+		        				<a href="#">Facebook API</a>
+		        				<div class="setting-detail">
+		        					<p>
+		        						In order for the automatic logo finder to work, you'll have to supply your own AppId/Secret for the Facebook API.
+		        						<a href="#" target="_blank">Learn more</a>
+		        					</p>
+		        					<input type="text" name="appid" placeholder="Facebook App ID">
+		        					<input type="text" name="appsecret" placeholder="Facebook App Secret">
+		        					<button class="save">Save</button>
+		        				</div>
+		        			</li>
+		        			<li>
+		        				<a href="#">Import</a>
+		        				<div class="setting-detail">
+
+		        				</div>
+		        			</li>
+		        		</ul>
 		        	</aside>
 	        		<div id="list-wrap">
 				        <h2>
@@ -144,7 +181,7 @@
 			                </li>
 				        </ul>
 				    </div>
-
+				    <div class="clearfix"></div>
 			        <section class="toolset animated slideInUp">
 			        	<a href="#" class="edit" id="edit-tools"><img src="img/pen.png" alt="Edit items"></a>
 			        	<a href="#" class="del" id="del-tools"><img src="img/trash.png" alt="Delete items"></a>

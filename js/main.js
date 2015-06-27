@@ -168,6 +168,8 @@ function toggleMenu(bodyEl,isOpen) {
 			$('input[type=submit]').val('Add to Collection');
 			$('h1').html('Add a Site');
 			$('.img-options').removeClass('active');
+			// reset auto image
+			$('.pic-holder').attr('data-auto','true');
 		}
 		else {
 			classie.add( bodyEl, 'show-menu' );
@@ -270,6 +272,7 @@ $(function() {
 		closebtn = document.getElementById( 'close-button' ),
 		isOpen = false;
 		var isOpenWelcome = false;
+		var flagUrl = 0;
 
 	$('.open-button').on('click',function(){
 		isOpen = toggleMenu(bodyEl,isOpen);
@@ -283,7 +286,14 @@ $(function() {
 	  if (e.keyCode == 13 && isOpenWelcome) changeSlide('+'); // Enter to next slide
 	  if (e.keyCode == 39 && isOpenWelcome) changeSlide('+'); // → to next slide
 	  if (e.keyCode == 37 && isOpenWelcome) changeSlide('-'); // ← to prev slide
+	  if (e.keyCode == 13 && flagUrl%2!=0){ // Enter to get image from URL and close menu
+	  	
+	  	var newImage = $('.menu-url input').val();
+		$('.pic-holder').attr('src',newImage).attr('data-auto','false');
 
+	  	flagUrl++;
+	  	$('.menu-url').removeClass('active');
+	  }
 	});
 
 
@@ -328,6 +338,9 @@ $(function() {
 	$('form').on('submit',function(){
 		var update = parseInt($('input[name=update]').val());
 
+		// reset auto image
+		$('.pic-holder').attr('data-auto','true');
+
 		// get active items + max id
 		var activeItems = localStorage.getItem('active-items');
 		var maxId = parseInt(localStorage.getItem('max-id'));
@@ -359,7 +372,7 @@ $(function() {
 			localStorage.setItem('max-id',itemId);
 			localStorage.setItem('amount-'+itemList,itemPosition);
 			// display new item
-			$('#'+itemList+'-list').append('<li class="animated zoomIn" data-sort="'+itemPosition+'" data-name="'+itemName+'" data-id="'+itemId+'"><a class="link" href="'+itemURL+'" target="_blank"><div class="edit-item" data-list="'+itemList+'"></div><div class="del-item" data-list="'+itemList+'"></div><div class="visited"></div><img src="'+itemPicture+'" alt="'+itemNiceName+'"></a>'+itemNiceName+'</li>');
+			$('#'+itemList+'-list').append('<li class="animated zoomIn" data-sort="'+itemPosition+'" data-name="'+itemName+'" data-id="'+itemId+'"><a class="link" href="'+itemURL+'" target="_blank"><div class="edit-item" data-list="'+itemList+'"></div><div class="del-item" data-list="'+itemList+'"></div><img src="'+itemPicture+'" alt="'+itemNiceName+'"></a>'+itemNiceName+'</li>');
 		}
 		else{ // UPDATE
 			var itemId = update;
@@ -371,7 +384,7 @@ $(function() {
 			// kill old item
 			$('li[data-id='+itemId+']').remove();
 			// display new item
-			$('#'+jsonItem.list+'-list').append('<li class="animated zoomIn" data-sort="'+jsonItem.position+'" data-name="'+itemName+'" data-id="'+itemId+'"><a class="link" href="'+itemURL+'" target="_blank"><div class="edit-item" data-list="'+jsonItem.list+'"></div><div class="del-item" data-list="'+jsonItem.list+'"></div><div class="visited"></div><img src="'+itemPicture+'" alt="'+itemNiceName+'"></a>'+itemNiceName+'</li>');
+			$('#'+jsonItem.list+'-list').append('<li class="animated zoomIn" data-sort="'+jsonItem.position+'" data-name="'+itemName+'" data-id="'+itemId+'"><a class="link" href="'+itemURL+'" target="_blank"><div class="edit-item" data-list="'+jsonItem.list+'"></div><div class="del-item" data-list="'+jsonItem.list+'"></div><img src="'+itemPicture+'" alt="'+itemNiceName+'"></a>'+itemNiceName+'</li>');
 		}
 
 		// toggle menu
@@ -386,8 +399,8 @@ $(function() {
 	// EDIT / DELETE INIT
 	var flagDel = {daily:0,weekly:0,monthly:0,tools:0};
 	var flagEdit = {daily:0,weekly:0,monthly:0,tools:0};
-	// delete
-	$('.del').on('click',function(){
+	// delete (show icons)
+	$('body').on('click','.del',function(){
 		var list = $(this).attr('id').split('-');
 			list = list[1];
 			listElm = '#'+list+'-list';
@@ -410,9 +423,9 @@ $(function() {
 		return false;	
 	});
 
-	// edit
+	// edit (show icons)
 
-	$('.edit').on('click',function(){
+	$('body').on('click','.edit',function(){
 		var list = $(this).attr('id').split('-');
 			list = list[1];
 			listElm = '#'+list+'-list';
@@ -436,7 +449,7 @@ $(function() {
 	});
 
 	// DELETE ITEM
-	$('.del-item').on('click',function(){
+	$('body').on('click','.del-item',function(){
 		var itemId = parseInt($(this).parent().parent().attr('data-id'));
 		var itemList = $(this).attr('data-list');
 		$(this).parent().parent().removeClass('zoomIn').addClass('zoomOut').delay(100).animate({'width':'0','margin-right':0},100);
@@ -466,7 +479,7 @@ $(function() {
 	});
 
 	// EDIT SETUP MODAL
-	$('.edit-item').on('click',function(){
+	$('body').on('click','.edit-item',function(){
 		isOpen = toggleMenu(bodyEl,isOpen);
 		var itemId = $(this).parent().parent().attr('data-id');
 
@@ -484,12 +497,13 @@ $(function() {
 		$('input[name=update]').val(itemId);
 		$('input[type=submit]').val('Update');;
 		$('h1').html('Update');
+		$('.img-options').addClass('active');
 
 		return false;
 	});
 
 	// INIT WELCOME (open)
-	isOpenWelcome = welcomeToggle(isOpenWelcome);
+	isOpenWelcome = welcomeToggle(!isOpenWelcome); /* enlever ! pour rétablir */
 
 	// CLOSE WELCOME
 	$('#welcome-container .close-button').on('click',function(){
@@ -512,16 +526,33 @@ $(function() {
 
 	// OPEN/CLOSE IMG MENU
 	var flagImg = 0;
-	$('.img-options').on('click',function(){
+	$('#more-img').on('click',function(){
 		if(flagImg%2==0){
 			var search = $('input[name=name]').val();
 			displayMoreImg(search);
 			$('.menu-img').addClass('active');
+			$(this).addClass('pushed');
 		}
 		else{
 			$('.menu-img').removeClass('active');
+			$(this).removeClass('pushed');
 		}
 		flagImg++;
+		return false;
+	});
+
+	// OPEN/CLOSE URL MENU
+	$('#url-img').on('click',function(){
+		if(flagUrl%2==0){
+			$('.menu-url').addClass('active');
+			$('.menu-url input').focus();
+			$(this).addClass('pushed');
+		}
+		else{
+			$('.menu-url').removeClass('active');
+			$(this).removeClass('pushed');
+		}
+		flagUrl++;
 		return false;
 	});
 
@@ -531,6 +562,43 @@ $(function() {
 		flagImg++;
 		$('.menu-img').removeClass('active');
 		$('.pic-holder').attr('src',newImage).attr('data-auto','false');
+	});
+
+	// BUDDASH MENU
+	var budFlag = 0;
+	$('aside').on('click',function(){
+		if(budFlag%2==0){
+			$('aside').addClass('active');
+			$('#list-wrap').addClass('offset');
+			$('aside .menu').removeClass('fadeOutLeft');
+			$('aside .menu').addClass('active animated fadeInLeft');
+		}
+		else{
+			$('aside').removeClass('active');
+			$('#list-wrap').removeClass('offset');
+			$('aside .menu').removeClass('fadeInLeft');
+			$('aside .menu').addClass('fadeOutLeft');
+			setTimeout(function(){
+				$('aside .menu').removeClass('active');
+			},500);
+		}
+		budFlag++;
+		return false;
+	});
+	var settingFlag = 0;
+	$('aside .menu li>a').on('click',function(){
+		if(settingFlag%2==0){
+			$(this).removeClass('inactive').addClass('active');
+			$(this).next('.setting-detail').addClass('active');
+			$('aside .menu li>a:not(.active)').addClass('inactive');
+		}
+		else{
+			$(this).addClass('inactive').removeClass('active');
+			$(this).next('.setting-detail').removeClass('active');
+			$('aside .menu li>a:not(.active)').removeClass('inactive');
+		}
+		settingFlag++;
+		return false;
 	});
 
 });
