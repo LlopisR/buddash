@@ -643,7 +643,7 @@ $(function() {
 
 		$('.save').addClass('confirmed');
 		setTimeout(function(){
-			$('.save').removeClass('confirmed');
+			$('.save').removeClass('confirmed');	
 		},800);
 		e.stopPropagation();
 		return false;
