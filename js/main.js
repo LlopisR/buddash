@@ -151,7 +151,7 @@ function displayCollection(){
 	for(var i = 0; i < collection.length; i++){
 
 		// generate DOM item
-		if(arrayLength>0){
+		if(arrayLength>1){
 			if(isVisited(collection[i].list,collection[i].last_visited)){
 				$('#'+collection[i].list+'-list').prepend('<li class="animated zoomIn visited" data-sort="'+collection[i].position+'" data-name="'+collection[i].name+'" data-id="'+collection[i].id+'"><a class="link" href="'+collection[i].url+'" target="_blank"><div class="edit-item" data-list="'+collection[i].list+'"></div><div class="del-item" data-list="'+collection[i].list+'"></div><div class="visited"></div><img src="'+collection[i].picture+'" alt="'+collection[i].friendly_name+'"></a>'+collection[i].friendly_name+'</li>');
 			}
