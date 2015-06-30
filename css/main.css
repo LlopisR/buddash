@@ -127,6 +127,8 @@ body {
     background: #ccc; }
   body .content {
     background: #eee;
+    background: url(../img/background.jpg) no-repeat;
+    background-size: cover;
     overflow: hidden;
     height: 100%;
     transition: all 0.5s ease-in-out; }
@@ -303,6 +305,8 @@ body {
                 background: #333; }
               body aside .menu li .setting-detail #theme-picker li#theme-forest {
                 background: #086901; }
+              body aside .menu li .setting-detail #theme-picker li#theme-blurred {
+                background: #56b5d0; }
   body #list-wrap {
     float: left;
     transform: translateX(0);

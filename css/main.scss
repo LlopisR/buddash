@@ -164,7 +164,14 @@ body{
 	}
 	
 	.content-wrap{background:#ccc;}
-	.content{background:#eee;overflow:hidden;height:100%;transition:all 0.5s ease-in-out;}
+	.content{
+		background:#eee;
+		background:url(../img/background.jpg) no-repeat;
+		background-size: cover;
+		overflow:hidden;
+		height:100%;
+		transition:all 0.5s ease-in-out;
+	}
 	aside{
 		text-align:center;
 		float:left;
@@ -399,6 +406,9 @@ body{
 							}
 							&#theme-forest{
 								background:#086901;
+							}
+							&#theme-blurred{
+								background:#56b5d0;
 							}
 						}
 					}
