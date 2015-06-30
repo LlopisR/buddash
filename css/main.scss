@@ -147,9 +147,24 @@ body{
 	font-family:'avenir';
 	font-weight:100;
 	background:#888;
+
+	.comingsoon{
+		background:#fff;
+		color:orange;
+		display:inline-block;
+		padding:5px;
+		font-size:10px;
+		font-weight:bold;
+		border-radius: 5px;
+		text-transform: uppercase;
+
+		&:before{
+			content:'coming soon';
+		}
+	}
 	
 	.content-wrap{background:#ccc;}
-	.content{background:#eee;overflow:hidden;height:100%;}
+	.content{background:#eee;overflow:hidden;height:100%;transition:all 0.5s ease-in-out;}
 	aside{
 		text-align:center;
 		float:left;
@@ -242,17 +257,27 @@ body{
 						transform:rotate(0deg);
 						transition:all 0.1s ease-in-out;
 					}
+					&:before{
+						content:' ↓ ';
+						float:left;
+						color:#aaa;
+						position:relative;
+						left:-50px;
+					}
+					&:after{
+						color:#aaa;
+						content:' ↓ ';
+						float:right;
+						position:relative;
+						right:-50px;
+					}
 
 					&:hover{
 						&:before{
-							color:#aaa;
-							content:' ↓ ';
-							float:left;
+							left:0;
 						}
 						&:after{
-							color:#aaa;
-							content:' ↓ ';
-							float:right;
+							right:0;
 						}
 
 					}
@@ -291,6 +316,10 @@ body{
 						transform:scaleY(1);
 					}
 
+					.comingsoon{
+						margin-bottom:10px;
+					}
+
 					p{
 						margin:0;
 						margin-bottom:10px;
@@ -322,6 +351,18 @@ body{
 						text-transform: uppercase;
 						font-size:11px;
 						font-weight:bold;
+						transition:all 0.2s ease-in-out;
+						outline:none !important;
+
+						&.confirmed{
+							background:#87b100 !important;
+							color:#fff;
+							box-shadow:0 3px 0 0 darken(#87b100,10%) !important;
+
+							&:after{
+								content:'D';
+							}
+						}
 					}
 
 					#theme-picker{
@@ -348,10 +389,16 @@ body{
 								background:#fff;
 							}
 							&#theme-zen{
-								background:#ffc700;
+								background:#103d52;
 							}
 							&#theme-fire{
 								background:#d13116;
+							}
+							&#theme-dark{
+								background:#333;
+							}
+							&#theme-forest{
+								background:#086901;
 							}
 						}
 					}
@@ -578,11 +625,13 @@ body{
 	hr{
 		margin:auto;
 		border:1px solid #ddd;
+		transition:all 0.5s ease-in-out;
 	}
 	.toolset{
 		background:#dadada;
 		padding:10px 0;
 		height:144px;
+		transition:all 0.5s ease-in-out;
 
 		&:hover .del,&:hover .edit{
 			display:inline;

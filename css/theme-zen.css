@@ -1,0 +1,48 @@
+body {
+  background: #081d27;
+  color: #ffc700; }
+  body .content {
+    background: #103d52; }
+  body h2 {
+    color: #299cd2; }
+  body .toolset {
+    background: #0c2d3d; }
+    body .toolset .placeholder {
+      background: #103d52 !important; }
+  body hr {
+    border: 1px solid #185d7d; }
+  body .placeholder {
+    color: #ffc700 !important;
+    background: #185d7d !important; }
+  body .menu li > a {
+    background: #185d7d !important;
+    color: #ffc700 !important; }
+  body .menu li:nth-of-type(even) > a {
+    background: #144d67 !important; }
+  body .setting-detail {
+    background: #0c2d3d !important; }
+    body .setting-detail p {
+      color: #fff; }
+      body .setting-detail p a {
+        color: #ffc700 !important; }
+  body .setting-detail button, body .img-options, body input[type=submit] {
+    background: #ffc700 !important;
+    box-shadow: 0 3px 0 0 #997700 !important; }
+  body .img-options.pushed {
+    box-shadow: 0 1px 0 0 #997700 !important; }
+  body .menu-wrap {
+    background: #ffc700; }
+    body .menu-wrap h1 {
+      color: #fff; }
+    body .menu-wrap form {
+      background: #103d52; }
+    body .menu-wrap .pic-holder {
+      background: black !important;
+      box-shadow: 0 5px 0 0 #997700 !important; }
+  body .menu-img, body .menu-url {
+    background: #144d67; }
+  body .menu-url span {
+    background: #ffc700;
+    color: #fff; }
+
+/*# sourceMappingURL=theme-zen.css.map */

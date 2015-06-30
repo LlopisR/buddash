@@ -1,0 +1,48 @@
+body {
+  background: #090909;
+  color: #eee; }
+  body .content {
+    background: #222; }
+  body h2 {
+    color: #6f6f6f; }
+  body .toolset {
+    background: #151515; }
+    body .toolset .placeholder {
+      background: #222 !important; }
+  body hr {
+    border: 1px solid #3c3c3c; }
+  body .placeholder {
+    color: #eee !important;
+    background: #3c3c3c !important; }
+  body .menu li > a {
+    background: #3c3c3c !important;
+    color: #eee !important; }
+  body .menu li:nth-of-type(even) > a {
+    background: #2f2f2f !important; }
+  body .setting-detail {
+    background: #151515 !important; }
+    body .setting-detail p {
+      color: #fff; }
+      body .setting-detail p a {
+        color: #eee !important; }
+  body .setting-detail button, body .img-options, body input[type=submit] {
+    background: #eee !important;
+    box-shadow: 0 3px 0 0 #bbbbbb !important; }
+  body .img-options.pushed {
+    box-shadow: 0 1px 0 0 #bbbbbb !important; }
+  body .menu-wrap {
+    background: #eee; }
+    body .menu-wrap h1 {
+      color: #fff; }
+    body .menu-wrap form {
+      background: #222; }
+    body .menu-wrap .pic-holder {
+      background: black !important;
+      box-shadow: 0 5px 0 0 #bbbbbb !important; }
+  body .menu-img, body .menu-url {
+    background: #2f2f2f; }
+  body .menu-url span {
+    background: #eee;
+    color: #fff; }
+
+/*# sourceMappingURL=theme-dark.css.map */

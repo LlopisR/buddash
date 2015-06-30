@@ -1,0 +1,77 @@
+$primary:#222;
+$secondary:#eee;
+
+body{
+	background:darken($primary,10%);
+	color:$secondary;
+
+	.content{
+		background:$primary;
+	}
+	h2{
+		color:lighten($primary,30%);
+	}
+	.toolset{
+		background:darken($primary,5%);
+		.placeholder{
+			background:$primary !important;	
+		}
+	}
+	hr{
+		border:1px solid lighten($primary,10%);
+	}
+	.placeholder{
+		color:$secondary !important;
+		background:lighten($primary,10%) !important;
+	}
+	.menu li>a{
+		background:lighten($primary,10%) !important;
+		color:$secondary !important;
+	}
+	.menu li:nth-of-type(even)>a{
+		background:lighten($primary,5%) !important;
+	}
+	.setting-detail{
+		background:darken($primary,5%) !important;
+
+		p{
+			color:#fff;
+
+			a{
+				color:$secondary !important;
+			}
+		}
+	}
+	.setting-detail button,.img-options,input[type=submit]{
+		background:$secondary !important;
+		box-shadow:0 3px 0 0 darken($secondary,20%) !important;
+	}
+	.img-options.pushed{
+		box-shadow:0 1px 0 0 darken($secondary,20%) !important;
+	}
+	.menu-wrap{
+		background:$secondary;
+
+		h1{
+			color:#fff;
+		}
+
+		form{
+			background:$primary;
+		}
+		.pic-holder{
+			background:darken($primary,20%) !important;
+			box-shadow:0 5px 0 0 darken($secondary,20%) !important;
+		}
+	}
+	.menu-img,.menu-url{
+		background:lighten($primary,5%);
+	}
+	.menu-url{
+		span{
+			background:$secondary;
+			color:#fff;
+		}
+	}
+
+}

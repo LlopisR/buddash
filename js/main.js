@@ -8,6 +8,15 @@ if(!localStorage.getItem('active-items')){
 	localStorage.setItem('amount-monthly','0');
 	localStorage.setItem('amount-tools','0');
 }
+/* get appid/secret facebook */
+if(localStorage.getItem('appid')){
+	var appId = localStorage.getItem('appid');
+	var appSecret = localStorage.getItem('appsecret');
+}
+else{
+	var appId = false;
+	var appSecret = false;
+}
 // get active items + max id
 var activeItems = localStorage.getItem('active-items');
 var maxId = parseInt(localStorage.getItem('max-id'));
@@ -241,7 +250,7 @@ function getPicture(search){
 	var isAuto = $('.pic-holder').attr('data-auto');
 	if(isAuto != 'false'){
 		if(search){
-			$.getJSON( "https://graph.facebook.com/search?q="+search+"&type=page&access_token=389462007849578|9817455b1f4793db6d1c889145bbeb7f&limit=1", function( data ) {
+			$.getJSON( "https://graph.facebook.com/search?q="+search+"&type=page&access_token="+appId+"|"+appSecret+"&limit=1", function( data ) {
 				pageid = data.data[0].id;
 				$('.pic-holder').attr('src','http://graph.facebook.com/'+pageid+'/picture/?width=100&height=100');
 			});
@@ -253,7 +262,7 @@ function getPicture(search){
 function displayMoreImg(search){
 	if(search){
 		$('.menu-img div').html('');
-		$.getJSON( "https://graph.facebook.com/search?q="+search+"&type=page&access_token=389462007849578|9817455b1f4793db6d1c889145bbeb7f&limit=20", function( data ) {
+		$.getJSON( "https://graph.facebook.com/search?q="+search+"&type=page&access_token="+appId+"|"+appSecret+"&limit=20", function( data ) {
 			length = data.data.length;
 			for(i=0;i<length;i++){
 				$('.menu-img div').append('<img src="http://graph.facebook.com/'+data.data[i].id+'/picture/?width=100&height=100" class="animated zoomIn">');
@@ -598,6 +607,45 @@ $(function() {
 			$('aside .menu li>a:not(.active)').removeClass('inactive');
 		}
 		settingFlag++;
+		return false;
+	});
+
+	/* THEME PICKER */
+	var currentTheme = localStorage.getItem('theme');
+	$('head').append('<link rel="stylesheet" data-id="theme-stylesheet" href="css/'+currentTheme+'.css">');
+
+
+	$('#theme-picker li').on('click',function(){
+		$('link[data-id=theme-stylesheet]').remove();
+		var theme = $(this).attr('id');
+		$('#theme-picker li').removeClass('active');
+		$(this).addClass('active');
+		$('head').append('<link rel="stylesheet" data-id="theme-stylesheet" href="css/'+theme+'.css">');
+		localStorage.setItem('theme',theme);
+		return false;
+	});
+
+
+	/* FACEBOOK APP ID/SECRET
+	/* init */
+	$('input[name=appid]').val(appId);
+	$('input[name=appsecret]').val(appSecret);
+
+	/* save new */
+	$('input[name=appid],input[name=appsecret]').on('click',function(){
+		return false;
+	});
+	$('aside').on('click','.save',function(e){
+		var newAppId = $('input[name=appid]').val();
+		var newAppSecret = $('input[name=appsecret]').val();
+		localStorage.setItem('appid',newAppId);
+		localStorage.setItem('appsecret',newAppSecret);
+
+		$('.save').addClass('confirmed');
+		setTimeout(function(){
+			$('.save').removeClass('confirmed');
+		},800);
+		e.stopPropagation();
 		return false;
 	});
 
