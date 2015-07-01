@@ -292,7 +292,6 @@ $(function() {
 	$(document).keyup(function(e) {
 	  if (e.keyCode == 27 && isOpen) isOpen = toggleMenu(bodyEl,isOpen); // esc to close ADD NEW
 	  if (e.keyCode == 27 && isOpenWelcome) isOpenWelcome = toggleWelcome(isOpenWelcome); // esc to close WELCOME
-	  if (e.keyCode == 13 && isOpenWelcome) changeSlide('+'); // Enter to next slide
 	  if (e.keyCode == 39 && isOpenWelcome) changeSlide('+'); // → to next slide
 	  if (e.keyCode == 37 && isOpenWelcome) changeSlide('-'); // ← to prev slide
 	  if (e.keyCode == 13 && flagUrl%2!=0){ // Enter to get image from URL and close menu
@@ -303,6 +302,12 @@ $(function() {
 	  	flagUrl++;
 	  	$('.menu-url').removeClass('active');
 	  }
+	});
+	$(document).keyup(function(e) {
+		if (e.keyCode == 13 && isOpenWelcome){ 
+			e.preventDefault();
+			changeSlide('+'); // Enter to next slide
+		}
 	});
 
 
@@ -512,7 +517,7 @@ $(function() {
 	});
 
 	// INIT WELCOME (open)
-	isOpenWelcome = welcomeToggle(!isOpenWelcome); /* enlever ! pour rétablir */
+	//isOpenWelcome = welcomeToggle(isOpenWelcome); /* enlever ! pour rétablir */
 
 	// CLOSE WELCOME
 	$('#welcome-container .close-button').on('click',function(){

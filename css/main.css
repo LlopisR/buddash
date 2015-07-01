@@ -129,9 +129,10 @@ body {
     background: #eee;
     background: url(../img/background.jpg) no-repeat;
     background-size: cover;
-    overflow: hidden;
+    /*overflow:hidden;*/
     height: 100%;
-    transition: all 0.5s ease-in-out; }
+    transition: all 0.5s ease-in-out;
+    vertical-align: middle; }
   body aside {
     text-align: center;
     float: left;
@@ -308,12 +309,15 @@ body {
               body aside .menu li .setting-detail #theme-picker li#theme-blurred {
                 background: #56b5d0; }
   body #list-wrap {
+    margin-top: 80px;
+    width: calc(100% - 130px);
     float: left;
     transform: translateX(0);
     /*width:calc(100% - 130px);*/
     transition: all 0.2s ease-in-out; }
     body #list-wrap.offset {
-      /*transform:translateX(200px);*/ }
+      /*transform:translateX(200px);*/
+      width: calc(100% - 330px); }
   body .menu-wrap {
     background: #fff; }
     body .menu-wrap h1 {
@@ -456,9 +460,22 @@ body {
     padding-top: 20px;
     line-height: 17px;
     font-weight: 100;
-    font-size: 17px; }
-    body h2:hover a {
-      display: inline; }
+    font-size: 17px;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: 20px;
+    text-align: right;
+    float: left;
+    transition: all 0.2s ease-in-out; }
+    body h2:hover {
+      top: 10px; }
+      body h2:hover a {
+        display: inline-block;
+        visibility: visible;
+        opacity: 1;
+        top: 40px; }
     body h2 img {
       width: 15px;
       height: 15px;
@@ -466,13 +483,23 @@ body {
       opacity: 0.5;
       transition: all 0.1s ease-in-out; }
     body h2 a {
-      display: none; }
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      right: 0px;
+      top: 20px;
+      transition: all 0.2s ease-in-out; }
+      body h2 a:last-of-type {
+        right: 20px; }
     body h2 a:hover img {
       transform: scale(1.1);
       opacity: 1; }
   body hr {
     margin: auto;
-    border: 1px solid #ddd;
+    border: none !important;
+    background: none;
+    display: block;
+    clear: both;
     transition: all 0.5s ease-in-out; }
   body .toolset {
     background: #dadada;
@@ -490,12 +517,12 @@ body {
     body .toolset .del, body .toolset .edit {
       display: none;
       float: left;
-      position: relative; }
+      position: absolute; }
     body .toolset .del {
-      top: 45px;
-      left: -10px; }
+      top: 52px;
+      left: 10px; }
     body .toolset .edit {
-      top: 22px;
+      top: 29px;
       left: 10px; }
     body .toolset .del:hover img, body .toolset .edit:hover img {
       transform: scale(1.1);
@@ -504,17 +531,20 @@ body {
       background: #ccc !important; }
   body .sites-list {
     padding: 0;
+    display: inline-block;
     padding-left: 40px;
     margin-top: 10px;
     list-style-type: none;
-    height: 92px; }
+    width: calc(100% - 180px);
+    float: left; }
     body .sites-list:hover a.placeholder {
       transform: scale(0.9) !important; }
     body .sites-list li {
-      display: inline-block;
+      float: left;
       width: 75px;
       height: 75px;
       margin-right: 10px;
+      margin-bottom: 25px;
       font-size: 11px;
       text-align: center; }
       body .sites-list li.visited img, body .sites-list li.blur img {
@@ -546,9 +576,9 @@ body {
           color: #333;
           transform: scale(0);
           position: relative;
-          top: -12px; }
+          top: 0; }
           body .sites-list li a.placeholder:hover {
-            transform: scale(1); }
+            transform: scale(0.9); }
         body .sites-list li a img {
           width: 75px;
           height: 75px;
@@ -588,6 +618,8 @@ body {
     body .container.blur {
       -webkit-filter: blur(10px) !important; }
   body #welcome-container {
+    display: none;
+    /* /!\ */
     width: 420px;
     height: 520px;
     position: absolute;
@@ -595,7 +627,7 @@ body {
     left: 50%;
     margin-left: -210px;
     margin-top: 75px;
-    background: #103d52;
+    background: #29375c;
     border-radius: 8px;
     z-index: 9999;
     text-align: center;
@@ -665,7 +697,7 @@ body {
       margin-top: 30px; }
     body #welcome-container nav {
       position: absolute;
-      bottom: 50px;
+      bottom: 20px;
       left: 50%;
       margin-left: -50px;
       display: none; }
@@ -676,13 +708,13 @@ body {
         float: left;
         width: 10px;
         height: 10px;
-        border-radius: 5px;
-        background: #3A7794;
+        border-radius: 50%;
+        background: #1f2b4b;
         margin: 0 5px;
         transition: all 0.1s ease-in-out; }
         body #welcome-container nav a:hover {
           transform: scale(1.3);
-          background: #6eaac6; }
+          background: #3d5493; }
         body #welcome-container nav a.active {
           background: #ffc700; }
           body #welcome-container nav a.active:hover {

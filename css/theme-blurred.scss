@@ -1,4 +1,4 @@
-$primary:#222;
+$primary:#29375c;
 $secondary:#fff;
 
 body{
@@ -7,11 +7,14 @@ body{
 
 	.content{
 		/*background:$primary;*/
-		background:url(../img/background.jpg) no-repeat;
+		background:url(../img/background.jpg) no-repeat #103d52;
 		background-size: cover;
 	}
+	.sites-list li{
+		text-shadow:1px 1px 0 #000;
+	}
 	h2{
-		color:lighten($primary,30%);
+		color:$primary;
 	}
 	.toolset{
 		background:darken($primary,5%);
@@ -25,7 +28,7 @@ body{
 	}
 	.placeholder{
 		color:$secondary !important;
-		background:lighten($primary,10%) !important;
+		background:rgba(0,0,0,0.1) !important;
 	}
 	.menu li>a{
 		background:lighten($primary,10%) !important;

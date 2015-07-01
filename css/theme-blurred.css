@@ -1,29 +1,31 @@
 body {
-  background: #090909;
+  background: #192239;
   color: #fff; }
   body .content {
     /*background:$primary;*/
-    background: url(../img/background.jpg) no-repeat;
+    background: url(../img/background.jpg) no-repeat #103d52;
     background-size: cover; }
+  body .sites-list li {
+    text-shadow: 1px 1px 0 #000; }
   body h2 {
-    color: #6f6f6f; }
+    color: #29375c; }
   body .toolset {
-    background: #151515;
+    background: #212c4a;
     background: rgba(34, 34, 34, 0.5); }
     body .toolset .placeholder {
-      background: #222 !important; }
+      background: #29375c !important; }
   body hr {
-    border: 1px solid #3c3c3c; }
+    border: 1px solid #394c7f; }
   body .placeholder {
     color: #fff !important;
-    background: #3c3c3c !important; }
+    background: rgba(0, 0, 0, 0.1) !important; }
   body .menu li > a {
-    background: #3c3c3c !important;
+    background: #394c7f !important;
     color: #fff !important; }
   body .menu li:nth-of-type(even) > a {
-    background: #2f2f2f !important; }
+    background: #31426e !important; }
   body .setting-detail {
-    background: #151515 !important; }
+    background: #212c4a !important; }
     body .setting-detail p {
       color: #fff; }
       body .setting-detail p a {
@@ -38,12 +40,12 @@ body {
     body .menu-wrap h1 {
       color: #fff; }
     body .menu-wrap form {
-      background: #222; }
+      background: #29375c; }
     body .menu-wrap .pic-holder {
-      background: black !important;
+      background: #0a0d15 !important;
       box-shadow: 0 5px 0 0 #cccccc !important; }
   body .menu-img, body .menu-url {
-    background: #2f2f2f; }
+    background: #31426e; }
   body .menu-url span {
     background: #fff;
     color: #fff; }
