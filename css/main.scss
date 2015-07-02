@@ -418,13 +418,16 @@ body{
 		}
 	}
 	#list-wrap{
-		box-sizing:border-box;
-		padding-top:40px;
+		/* flexbox */
+		display:flex;
+		flex-direction:column;
+		flex-wrap:nowrap;
+		align-items:flex-start;
+		justify-content: center;
+
 		width:calc(100% - 130px);
 		height:calc(100% - 130px);
 		overflow-y:scroll;
-		display:table-cell;
-		vertical-align: bottom;
 
 		float:left;
 		-webkit-transform:translateX(0);
@@ -433,6 +436,9 @@ body{
 		&.offset{
 			/*-webkit-transform:translateX(200px);*/
 			width:calc(100% - 330px);
+		}
+		&>div{
+			width:100%;
 		}
 	}
 	.menu-wrap{

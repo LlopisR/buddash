@@ -308,19 +308,23 @@ body {
               body aside .menu li .setting-detail #theme-picker li#theme-blurred {
                 background: #56b5d0; }
   body #list-wrap {
-    box-sizing: border-box;
-    padding-top: 40px;
+    /* flexbox */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: center;
     width: calc(100% - 130px);
     height: calc(100% - 130px);
     overflow-y: scroll;
-    display: table-cell;
-    vertical-align: bottom;
     float: left;
     -webkit-transform: translateX(0);
     transition: all 0.2s ease-in-out; }
     body #list-wrap.offset {
       /*-webkit-transform:translateX(200px);*/
       width: calc(100% - 330px); }
+    body #list-wrap > div {
+      width: 100%; }
   body .menu-wrap {
     background: #fff; }
     body .menu-wrap h1 {
