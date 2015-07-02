@@ -8,7 +8,8 @@ body {
   body .sites-list li {
     text-shadow: 1px 1px 0 #000; }
   body h2 {
-    color: #29375c; }
+    color: #29375c;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3); }
   body .toolset {
     background: #212c4a;
     background: rgba(34, 34, 34, 0.5); }

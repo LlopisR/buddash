@@ -7,6 +7,7 @@ if(!localStorage.getItem('active-items')){
 	localStorage.setItem('amount-weekly','0');
 	localStorage.setItem('amount-monthly','0');
 	localStorage.setItem('amount-tools','0');
+	localStorage.setItem('theme','theme-blurred');
 }
 /* get appid/secret facebook */
 if(localStorage.getItem('appid')){
@@ -153,10 +154,10 @@ function displayCollection(){
 		// generate DOM item
 		if(arrayLength>1){
 			if(isVisited(collection[i].list,collection[i].last_visited)){
-				$('#'+collection[i].list+'-list').prepend('<li class="animated zoomIn visited" data-sort="'+collection[i].position+'" data-name="'+collection[i].name+'" data-id="'+collection[i].id+'"><a class="link" href="'+collection[i].url+'" target="_blank"><div class="edit-item" data-list="'+collection[i].list+'"></div><div class="del-item" data-list="'+collection[i].list+'"></div><div class="visited"></div><img src="'+collection[i].picture+'" alt="'+collection[i].friendly_name+'"></a>'+collection[i].friendly_name+'</li>');
+				$('#'+collection[i].list+'-list').prepend('<li class="animated zoomIn visited" data-sort="'+collection[i].position+'" data-name="'+collection[i].name+'" data-id="'+collection[i].id+'"><a class="link" href="'+collection[i].url+'"><div class="edit-item" data-list="'+collection[i].list+'"></div><div class="del-item" data-list="'+collection[i].list+'"></div><div class="visited"></div><img src="'+collection[i].picture+'" alt="'+collection[i].friendly_name+'"></a>'+collection[i].friendly_name+'</li>');
 			}
 			else{
-				$('#'+collection[i].list+'-list').prepend('<li class="animated zoomIn" data-sort="'+collection[i].position+'" data-name="'+collection[i].name+'" data-id="'+collection[i].id+'"><a class="link" href="'+collection[i].url+'" target="_blank"><div class="edit-item" data-list="'+collection[i].list+'"></div><div class="del-item" data-list="'+collection[i].list+'"></div><img src="'+collection[i].picture+'" alt="'+collection[i].friendly_name+'"></a>'+collection[i].friendly_name+'</li>');
+				$('#'+collection[i].list+'-list').prepend('<li class="animated zoomIn" data-sort="'+collection[i].position+'" data-name="'+collection[i].name+'" data-id="'+collection[i].id+'"><a class="link" href="'+collection[i].url+'"><div class="edit-item" data-list="'+collection[i].list+'"></div><div class="del-item" data-list="'+collection[i].list+'"></div><img src="'+collection[i].picture+'" alt="'+collection[i].friendly_name+'"></a>'+collection[i].friendly_name+'</li>');
 			}
 		}
 	}
@@ -376,7 +377,7 @@ $(function() {
 			var dataToStore = JSON.stringify(data);
 			localStorage.setItem(itemId, dataToStore);
 			// increment flags with new id
-			if(!arrayLength){
+			if(!activeItems){
 				activeItems = itemId;
 			}
 			else{
@@ -386,7 +387,7 @@ $(function() {
 			localStorage.setItem('max-id',itemId);
 			localStorage.setItem('amount-'+itemList,itemPosition);
 			// display new item
-			$('#'+itemList+'-list').append('<li class="animated zoomIn" data-sort="'+itemPosition+'" data-name="'+itemName+'" data-id="'+itemId+'"><a class="link" href="'+itemURL+'" target="_blank"><div class="edit-item" data-list="'+itemList+'"></div><div class="del-item" data-list="'+itemList+'"></div><img src="'+itemPicture+'" alt="'+itemNiceName+'"></a>'+itemNiceName+'</li>');
+			$('#'+itemList+'-list').append('<li class="animated zoomIn" data-sort="'+itemPosition+'" data-name="'+itemName+'" data-id="'+itemId+'"><a class="link" href="'+itemURL+'"><div class="edit-item" data-list="'+itemList+'"></div><div class="del-item" data-list="'+itemList+'"></div><img src="'+itemPicture+'" alt="'+itemNiceName+'"></a>'+itemNiceName+'</li>');
 		}
 		else{ // UPDATE
 			var itemId = update;
@@ -398,7 +399,7 @@ $(function() {
 			// kill old item
 			$('li[data-id='+itemId+']').remove();
 			// display new item
-			$('#'+jsonItem.list+'-list').append('<li class="animated zoomIn" data-sort="'+jsonItem.position+'" data-name="'+itemName+'" data-id="'+itemId+'"><a class="link" href="'+itemURL+'" target="_blank"><div class="edit-item" data-list="'+jsonItem.list+'"></div><div class="del-item" data-list="'+jsonItem.list+'"></div><img src="'+itemPicture+'" alt="'+itemNiceName+'"></a>'+itemNiceName+'</li>');
+			$('#'+jsonItem.list+'-list').append('<li class="animated zoomIn" data-sort="'+jsonItem.position+'" data-name="'+itemName+'" data-id="'+itemId+'"><a class="link" href="'+itemURL+'"><div class="edit-item" data-list="'+jsonItem.list+'"></div><div class="del-item" data-list="'+jsonItem.list+'"></div><img src="'+itemPicture+'" alt="'+itemNiceName+'"></a>'+itemNiceName+'</li>');
 		}
 
 		// toggle menu
