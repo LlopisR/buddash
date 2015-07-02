@@ -281,6 +281,12 @@ function getRandomInt(min, max) {
 
 /* INTRO ANIMATION */
 function introAnimation(action,handle){
+	var flag = [];
+	flag['daily'] = 0;
+	flag['weekly'] = 0;
+	flag['monthly'] = 0;
+	flag['tools'] = 0;
+
 	if(action=="on"){
 		return setInterval(function(){
 			var rand = getRandomInt(1,4);
@@ -288,13 +294,20 @@ function introAnimation(action,handle){
 			if(rand==2) var list = "weekly";
 			if(rand==3) var list = "monthly";
 			if(rand==4) var list = "tools";
+
+			flag[list]++;
 			var color = Math.floor(Math.random()*16777215).toString(16);
-			$('#'+list+'-list').append('<li class="animated fadeInDownBig demo" style="background:#'+color+'"></li>');
-		},1200);
+			if(flag[list]<=10){
+				$('#'+list+'-list').append('<li class="animated zoomIn demo" style="background:#'+color+'"></li>');
+			}
+		},300);
 	}
 	else if(action=='off'){
 		clearInterval(handle);
 		$('li.demo').removeClass('fadeInDownBig').addClass('zoomOut');
+		setTimeout(function(){
+			$('li.demo').remove();
+		},800);
 	}
 }
 

@@ -744,6 +744,19 @@ body{
 				}
 			}
 
+			&.demo{
+				animation-duration:0.5s;
+				animation-delay:0.5s;
+
+				&.zoomOut{
+					animation-delay:0.2s;
+				}
+			}
+			&:first-of-type{
+				&.add-button .placeholder{
+					-webkit-transform:scale(1);
+				}
+			}
 			a{
 				display:block;
 				width:100%;
@@ -843,13 +856,14 @@ body{
 		left:50%;
 		margin-left:-210px;
 		margin-top:75px;
-		background:#29375c;
+		background:rgba(41, 55, 92, 0.8);
 		border-radius:8px;
 		z-index:9999;
 		text-align:center;
 		font-size:21px;
 		color: #fff;
 		line-height: 29px;
+		opacity:0.2 !important;
 
 		&.active{
 			display:block;
@@ -923,6 +937,11 @@ body{
 			display:inline-block;
 			text-align:center;
 			float:left;
+
+			video{
+				width:100%;
+				height:300px;
+			}
 		}
 		.buddash-logo-small{
 			width:40px;
