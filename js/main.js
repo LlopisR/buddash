@@ -1,6 +1,7 @@
 // INIT ITEMS
 // init if first run
 if(!localStorage.getItem('active-items')){
+	var firstVisit = true;
 	localStorage.setItem('active-items','');
 	localStorage.setItem('max-id','0');
 	localStorage.setItem('amount-daily','0');
@@ -272,8 +273,34 @@ function displayMoreImg(search){
 	}
 }
 
+/* RANDOM INT */
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+/* INTRO ANIMATION */
+function introAnimation(action,handle){
+	if(action=="on"){
+		return setInterval(function(){
+			var rand = getRandomInt(1,4);
+			if(rand==1) var list = "daily";
+			if(rand==2) var list = "weekly";
+			if(rand==3) var list = "monthly";
+			if(rand==4) var list = "tools";
+			var color = Math.floor(Math.random()*16777215).toString(16);
+			$('#'+list+'-list').append('<li class="animated fadeInDownBig demo" style="background:#'+color+'"></li>');
+		},1200);
+	}
+	else if(action=='off'){
+		clearInterval(handle);
+		$('li.demo').removeClass('fadeInDownBig').addClass('zoomOut');
+	}
+}
 
 $(function() {
+
+
 	
 	//=== CODROPS MENU ===//
 	var bodyEl = document.body,
@@ -518,11 +545,17 @@ $(function() {
 	});
 
 	// INIT WELCOME (open)
-	//isOpenWelcome = welcomeToggle(isOpenWelcome); /* enlever ! pour rétablir */
+	var handle = null;
+	if(firstVisit){
+		$('#welcome-container').addClass('active');
+		isOpenWelcome = welcomeToggle(isOpenWelcome); 
+		handle = introAnimation('on',handle);
+	}
 
 	// CLOSE WELCOME
 	$('#welcome-container .close-button').on('click',function(){
 		isOpenWelcome = welcomeToggle(isOpenWelcome);
+		introAnimation('off',handle);
 		return false;
 	});
 	

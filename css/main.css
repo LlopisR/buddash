@@ -637,6 +637,8 @@ body {
     font-size: 21px;
     color: #fff;
     line-height: 29px; }
+    body #welcome-container.active {
+      display: block; }
     body #welcome-container .close-button {
       opacity: 0.5;
       transition: all 0.1s ease-in-out; }

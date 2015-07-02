@@ -29,6 +29,12 @@ $(function() {
 	localStorage.setItem('amount-tools','10');
 	localStorage.setItem('max-id','19');
 
+	// fb api
+	localStorage.setItem('appid','389462007849578');
+	localStorage.setItem('appsecret','9817455b1f4793db6d1c889145bbeb7f');
+
+
+
 	// theme
 	localStorage.setItem('theme','theme-blurred');
 });
